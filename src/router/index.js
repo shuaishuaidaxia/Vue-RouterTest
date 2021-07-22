@@ -1,24 +1,56 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Login from '../views/login'
+import Home from '../views/Home'
+import NotFound from '../views/errpages/404'
+import Forbidden from '../views/errpages/403'
+import Layout from '../views/layout'
+
 
 Vue.use(VueRouter)
 
+//初始化路由
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/login',
+    name: 'login',
+    component: Login
+  }
+  ]
+
+//准备动态路由
+/*根据用户的权限不同 所看到的页面和可操作性也不同*/
+export const DynamicRoutes = [
+  {
+    path:'',
+    component: Layout,
+    redirect: "Home",
+    meta: {
+      requiresAuth: true,
+      name:"首页"
+    },
+    child: [
+      {
+        path: "home",
+        component:Home,
+        name: "home",
+        meta: {
+          name: "首页"
+        }
+      }
+    ]
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: "/403",
+    component: Forbidden
+  },
+  {
+    path: "*",
+    component: NotFound
   }
 ]
+
+
 
 const router = new VueRouter({
   mode: 'history',
