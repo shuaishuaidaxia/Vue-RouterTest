@@ -1,12 +1,10 @@
 <template>
-<div>首页
-  <router-view></router-view>
-</div>
+<div>gooslist</div>
 </template>
 
 <script>
 export default {
-  name: "index"
+  name: "goodslist"
 }
 </script>
 

@@ -5,8 +5,6 @@ import Home from '../views/Home'
 import NotFound from '../views/errpages/404'
 import Forbidden from '../views/errpages/403'
 import Layout from '../views/layout'
-
-
 Vue.use(VueRouter)
 
 //初始化路由
@@ -29,9 +27,9 @@ export const DynamicRoutes = [
       requiresAuth: true,
       name:"首页"
     },
-    child: [
+    children: [
       {
-        path: "home",
+        path: "/home",
         component:Home,
         name: "home",
         meta: {
@@ -49,7 +47,6 @@ export const DynamicRoutes = [
     component: NotFound
   }
 ]
-
 
 
 const router = new VueRouter({

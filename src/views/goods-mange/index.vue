@@ -1,5 +1,5 @@
 <template>
-<div>首页
+<div>商品管理
   <router-view></router-view>
 </div>
 </template>

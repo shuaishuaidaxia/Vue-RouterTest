@@ -1,12 +1,10 @@
 <template>
-<div>首页
-  <router-view></router-view>
-</div>
+<p>售后订单</p>
 </template>
 
 <script>
 export default {
-  name: "index"
+  name: "shouhouorder"
 }
 </script>
 

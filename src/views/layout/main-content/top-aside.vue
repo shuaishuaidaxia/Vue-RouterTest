@@ -1,12 +1,12 @@
 <template>
-<div>首页
-  <router-view></router-view>
+<div>
+  <p>头顶</p>
 </div>
 </template>
 
 <script>
 export default {
-  name: "index"
+  name: "top-aside"
 }
 </script>
 

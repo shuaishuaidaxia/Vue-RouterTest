@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import {login,} from "../../api";
+
 export default {
   name: "index",
   data () {
@@ -25,8 +27,14 @@ export default {
     }
   },
   methods: {
-    login(){
+    async login(){
       //登录请求
+      let data = await login(this.account)
+      let token = data.token
+      this.$store.commit('LOGIN_IN',token)
+      console.log(localStorage.getItem('token'),'locat-token')
+       this.$router.push('/home')
+      console.log(token)
     }
   }
 }

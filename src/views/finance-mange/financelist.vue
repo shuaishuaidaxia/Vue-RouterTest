@@ -1,12 +1,10 @@
 <template>
-<div>首页
-  <router-view></router-view>
-</div>
+<div>financelist</div>
 </template>
 
 <script>
 export default {
-  name: "index"
+  name: "financelist"
 }
 </script>
 

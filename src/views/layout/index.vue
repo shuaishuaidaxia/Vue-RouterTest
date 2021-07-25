@@ -1,13 +1,63 @@
 <template>
-<div>Layout</div>
+<div>
+  <template>
+      <sidebar-nav></sidebar-nav>
+      <a-layout>
+        <a-layout-header style="background: #fff; padding: 0">
+          <a-icon
+              class="trigger"
+              :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+              @click="() => (collapsed = !collapsed)"
+          />
+        </a-layout-header>
+        <a-layout-content
+            :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
+        >
+         <Centent></Centent>
+        </a-layout-content>
+      </a-layout>
+    </a-layout>
+  </template>
+  <router-view></router-view>
+</div>
 </template>
 
 <script>
+import Centent from "./main-content/main-content";
+import topaside from './main-content/top-aside'
+import SidebarNav from "./sidebar-nav";
+
 export default {
-  name: "index"
+  name: "index",
+  data() {
+    return {
+      collapsed: false,
+    };
+  },
+  components: {SidebarNav, Centent, topaside},
 }
 </script>
 
-<style scoped>
+<style>
+#components-layout-demo-custom-trigger .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
 
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
+}
+
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
 </style>
+
+
+
+
